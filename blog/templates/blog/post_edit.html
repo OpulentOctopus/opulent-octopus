@@ -1,7 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New post</h1>
+	{% if post.created_date %}
+    	<h1>Edit Existing Post</h1>
+    {% else %}
+    	<h1>Create New Post</h1>
+    {% endif %}
     <form method="POST" class="post-form">
     	{% csrf_token %}
     	{{ form.as_p }}
